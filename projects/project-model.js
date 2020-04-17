@@ -3,7 +3,7 @@ const db = require('../data/db-config');
 module.exports = {
 	getProjects,
 	findById,
- getTasks,
+    getTasks,
 	getResources,
 	addProject,
 	addTask,
