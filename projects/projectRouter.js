@@ -35,8 +35,9 @@ router.get("/", (req, res) => {
 
 
 //get Tasks
-router.get("/tasks", (req, res) => {
-  Projects.getTasks()
+router.get("/:id/tasks", (req, res) => {
+    const { id } = req.params;
+  Projects.getTasks(id)
   .then(tasks => {
       res.status(200).json(tasks);
     })
@@ -48,8 +49,10 @@ router.get("/tasks", (req, res) => {
 
 
 //get resources
-router.get("/resources", (req, res) => {
-  Projects.getResources()
+router.get("/:id/resources", (req, res) => {
+    const { id } = req.params;
+
+  Projects.getResources(id)
     .then(resources => {
       res.status(200).json(resources);
     })

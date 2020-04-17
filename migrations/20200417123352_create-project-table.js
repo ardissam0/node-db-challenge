@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema
     .createTable('projects', tbl => {
-        tbl.increments();
+        tbl.increments().unique();
 
         tbl.string('name').notNullable();
         tbl.string('description').notNullable();
@@ -10,7 +10,7 @@ exports.up = function(knex) {
     })
 
     .createTable('tasks', tbl => {
-        tbl.increments();
+        tbl.increments().unique();
         tbl.string('description').notNullable();
         tbl.string('notes');
         tbl.boolean('completed').defaultTo(false);
@@ -23,7 +23,7 @@ exports.up = function(knex) {
     })
 
     .createTable('resources', tbl => {
-        tbl.increments();
+        tbl.increments().unique();
         tbl
             .string('name')
             .notNullable()
